@@ -1,0 +1,57 @@
+{
+  "name": "code-smart",
+  "version": "0.0.1",
+  "displayName": "CSS Smart",
+  "description": "a smart code helper.",
+  "main": "./out/extension.js",
+  "scripts": {
+    "prepare": "husky install",
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test",
+    "lint:es": "eslint -c .eslintrc.js --ext .ts,.tsx ./",
+    "lint:es-fix": "eslint --fix -c .eslintrc.js --ext .ts,.tsx ./"
+  },
+  "devDependencies": {
+    "@lough/commitlint-config": "^0.1.3",
+    "@lough/eslint-config": "^0.1.6",
+    "@lough/tsconfig": "^0.0.5",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.85.0",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.8",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.8.4",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "code-smart.helloWorld",
+        "title": "Hello World"
+      }
+    ]
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint -c .eslintrc.js --ext .ts,.tsx"
+    ],
+    "*.{css,less,scss,styl}": [
+      "stylelint --config .stylelintrc.js *.{css,less,scss,styl}"
+    ]
+  }
+}
