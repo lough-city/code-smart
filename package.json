@@ -1,11 +1,13 @@
 {
   "name": "code-smart",
-  "version": "0.0.1",
-  "displayName": "CSS Smart",
+  "version": "1.0.0",
+  "displayName": "Code Smart",
   "description": "a smart code helper.",
+  "icon": "images/icon.png",
   "main": "./out/extension.js",
   "scripts": {
     "prepare": "husky install",
+    "package": "vsce package",
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
@@ -29,6 +31,20 @@
     "prettier": "^2.8.4",
     "typescript": "^5.3.3"
   },
+  "publisher": "City",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lough-city/code-smart.git"
+  },
+  "keywords": [
+    "vscode"
+  ],
+  "author": "City",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lough-city/code-smart/issues"
+  },
+  "homepage": "https://github.com/lough-city/code-smart#readme",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -36,7 +52,7 @@
     "Themes"
   ],
   "activationEvents": [
-    "*"
+    "onStartupFinished"
   ],
   "contributes": {
     "commands": [

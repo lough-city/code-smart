@@ -26,8 +26,6 @@ const workbenchCSSFileName: string = vscode.version >= '1.38' ? 'workbench.deskt
 export async function activate(_context: vscode.ExtensionContext) {
   const p = path.join(path.dirname((require.main as NodeModule).filename), 'vs', 'workbench', workbenchCSSFileName);
 
-  // TODO: 提升加载速度
-
   const originStyle = readFileSync(p, { encoding: 'utf-8' });
 
   if (originStyle.includes(MIXIN_SIGN.start)) {
