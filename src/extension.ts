@@ -24,7 +24,9 @@ const genStyle = (image: string) => {
 const workbenchCSSFileName: string = vscode.version >= '1.38' ? 'workbench.desktop.main.css' : 'workbench.main.css';
 
 export async function activate(_context: vscode.ExtensionContext) {
-  const p = path.join(path.dirname((require.main as NodeModule).filename), 'vs', 'workbench', workbenchCSSFileName);
+  const p = require.main
+    ? path.join(path.dirname((require.main as NodeModule).filename), 'vs', 'workbench', workbenchCSSFileName)
+    : path.join(vscode.env.appRoot, 'out', 'vs', 'workbench', workbenchCSSFileName);
 
   const originStyle = readFileSync(p, { encoding: 'utf-8' });
 
