@@ -6,8 +6,7 @@ import { getBingTodayImageUrl } from './core/bing';
 import { imageUrlToBase64 } from './utils/image';
 
 const genStyle = (image: string) => {
-  let opacity = 0.4;
-  opacity = 0.59 + (0.4 - (opacity * 4) / 10);
+  const opacity = 0.4;
 
   return `
 /* ${MIXIN_SIGN.start} */
@@ -23,8 +22,7 @@ const genStyle = (image: string) => {
 };
 
 const genJsCode = (imageBase64: string) => {
-  let opacity = 0.4;
-  opacity = 0.59 + (0.4 - (opacity * 4) / 10);
+  const opacity = 0.4;
 
   return `/* ${MIXIN_SIGN.start} */
     const style = document.createElement('style');
